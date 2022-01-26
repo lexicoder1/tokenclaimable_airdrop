@@ -10,6 +10,7 @@ abstract contract Context {
         return msg.data;
     }
 }
+
 abstract contract Ownable is Context {
     address private _owner;
 
@@ -61,7 +62,7 @@ contract airdrop is Ownable{
 
       mapping (address=>bool)claimed;
       mapping (address=>bool) _blacklistedaddress;
-      uint amountToken=110000*10**9;
+      uint amountToken=110000*10**18;
       address _addr;
       
       token _token;
@@ -72,7 +73,7 @@ contract airdrop is Ownable{
           _addr=add;
       }
       function settokenamounttobeclaimed(uint amount)public onlyOwner{
-          amountToken=amount*10**9;
+          amountToken=amount*10**18;
       }
       function removeblackListAddress(address add)public onlyOwner{
            _blacklistedaddress[add]=false;
